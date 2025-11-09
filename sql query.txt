@@ -1,0 +1,45 @@
+Module4 (Query):
+CREATE DATABASE IF NOT EXISTS car_service;
+USE car_service;
+
+CREATE TABLE IF NOT EXISTS MaintenanceRecords (
+    record_id INT AUTO_INCREMENT PRIMARY KEY,
+    car_model VARCHAR(100),
+    owner_name VARCHAR(100),
+    maintenance_task VARCHAR(100),
+    service_date DATE,
+    status VARCHAR(50)
+);
+
+INSERT INTO MaintenanceRecords (car_model, owner_name, maintenance_task, service_date, status)
+VALUES 
+('Honda City', 'Chanakyan', 'Oil Change', '2025-11-05', 'Completed'),
+('Hyundai i20', 'Rahul', 'Tyre Replacement', '2025-11-06', 'Pending'),
+('Maruti Swift', 'Arun', 'Brake Inspection', '2025-11-07', 'Scheduled');
+
+SELECT * FROM MaintenanceRecords;
+
+UPDATE MaintenanceRecords
+SET status = 'Completed'
+WHERE record_id = 2;
+
+DELETE FROM MaintenanceRecords
+WHERE record_id = 3;
+
+SELECT * FROM MaintenanceRecords
+WHERE service_date >= CURDATE()
+ORDER BY service_date ASC;
+
+Module5 (Query):
+CREATE DATABASE IF NOT EXISTS sql_file_4;
+
+USE sql_file_4;
+
+CREATE TABLE car_service (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    owner_name VARCHAR(100),
+    car_model VARCHAR(100),
+    service_date DATE,
+    service_type VARCHAR(100)
+);
+select * from car_service;
